@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
+require('dotenv').config();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -9,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://kamal:1NyylpqvnwNBNFTF@cluster0.guanikd.mongodb.net/tutedude-todo", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -54,7 +55,7 @@ app.delete("/delete/:id", async (req, res) => {
   res.sendStatus(200);
 });
 
-const PORT =3000;
+const PORT =process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
