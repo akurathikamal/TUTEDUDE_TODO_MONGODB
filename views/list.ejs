@@ -23,13 +23,12 @@
         </select>
       </div>
       <% for(let i=0; i<todos.length; i++){ %>
-        <div class="todo-item" data-priority="<%= todos[i].priority %>">
-          
-          <span class="todo-text" id="text-<%= i %>"><%= todos[i].text %></span>
-          <span class="priority-label"><%= todos[i].priority.charAt(0).toUpperCase() + todos[i].priority.slice(1) %></span>
-          <button class="edit-btn" type="button">Edit</button>
-          <button class="delete-btn" type="button">Delete</button>
-        </div>
+        <div class="todo-item" data-id="<%= todos[i]._id %>" data-priority="<%= todos[i].priority %>">
+  <span class="todo-text" id="text-<%= i %>"><%= todos[i].text %></span>
+  <span class="priority-label"><%= todos[i].priority.charAt(0).toUpperCase() + todos[i].priority.slice(1) %></span>
+  <button class="edit-btn" type="button">Edit</button>
+  <button class="delete-btn" type="button">Delete</button>
+</div>
       <% } %>
       <form id="todo-form" action="/" method="post" autocomplete="off">
         <input type="text" id="todo-input" name="element" placeholder="Enter the todo list">
