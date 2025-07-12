@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/todoDB", {
+mongoose.connect("mongodb+srv://kamal:1NyylpqvnwNBNFTF@cluster0.guanikd.mongodb.net/", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
